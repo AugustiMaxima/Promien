@@ -1,0 +1,2 @@
+#define Promien_VERSION_MAJOR @Promien_VERSION_MAJOR@
+#define Promien_VERSION_MINOR @Promien_VERSION_MINOR@
