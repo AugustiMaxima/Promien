@@ -11,13 +11,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 configure_file(_buildConfig.h.in _buildConfig.h)
 
 #include
-include_directories(./src ./include ./lib/glfw-3.3.2/include ./config)
+include_directories(./src ./include ./lib/glfw/include ./config)
 
 #target
 add_executable(Promien src/main.cpp src/harness.cpp src/plate.cpp src/config.cpp)
 
+#commands and configs
+add_custom_command(OUTPUT config
+					COMMAND cp ${CMAKE_SOURCE_DIR}/config/* .)
+set_property(SOURCE src/main.cpp APPEND PROPERTY OBJECT_DEPENDS config)
+
 #libraries
-add_subdirectory(./lib/glfw-3.3.2)
+add_subdirectory(./lib/glfw)
 target_link_libraries(Promien glfw)
 
 find_package(OpenGL REQUIRED)
@@ -28,4 +33,3 @@ target_include_directories(Promien PUBLIC
 "${PROJECT_BINARY_DIR}"
 "${PROJECT_BINARY_DIR}/*"
 )
-
