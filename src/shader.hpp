@@ -1,3 +1,5 @@
+#pragma once
+
 #include <GL/gl.h>
 #include <vector>
 
@@ -11,5 +13,6 @@ struct Shader{
 	void attachShader(const std::string& filename);
 	GLuint getShaderId() const;
 	std::string compileShader();
+	~Shader();
 };
 }

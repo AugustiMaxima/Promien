@@ -55,4 +55,8 @@ std::string compileShader(){
 	return "";
 }
 
+Shader::~Shader(){
+	glDeleteShader(id);
+}
+
 }
