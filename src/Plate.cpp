@@ -1,10 +1,9 @@
-
-#include "config.hpp"
-#include "harness.hpp"
 #include <GLFW/glfw3.h>
-#include "plate.hpp"
+#include "Config.hpp"
+#include "Harness.hpp"
+#include "Plate.hpp"
 
-namespace phrame{
+namespace Phrame{
 
 Plate::Plate(Harness& harness):harness(harness){}
 
@@ -28,6 +27,8 @@ int Plate::assemble(const char* cfg, const char* manifest){
 		glfwTerminate();
 		return -1;
 	}
+
+	harness.setWindow(window);
 
 	glfwMakeContextCurrent(window);
 

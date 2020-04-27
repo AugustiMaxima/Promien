@@ -1,6 +1,6 @@
-#include "program.hpp"
+#include "Program.hpp"
 
-namespace core{
+namespace Core{
 	Program::Program(){
 		id = glCreateProgram();
 	}

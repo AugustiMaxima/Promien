@@ -5,11 +5,13 @@
 
 class GLFWwindow;
 
-namespace phrame{
+namespace Phrame{
 class Harness{
+	protected:
 	GLFWwindow* window;
-	public:
 	
+	public:
+	//initialization
 	void setWindow(GLFWwindow* window);
 
 	//for maximum flexiblilty, the window object is passed on

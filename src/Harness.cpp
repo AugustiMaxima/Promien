@@ -1,7 +1,7 @@
 #include <GLFW/glfw3.h>
-#include "harness.hpp"
+#include "Harness.hpp"
 
-namespace phrame{
+namespace Phrame{
 
 	void Harness::setWindow(GLFWwindow* window){
 		this->window = window;

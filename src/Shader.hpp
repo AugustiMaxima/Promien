@@ -3,7 +3,7 @@
 #include <GL/gl.h>
 #include <vector>
 
-namespace core{
+namespace Core{
 struct Shader{
 	std::vector<std::string> files;
 	GLuint id;

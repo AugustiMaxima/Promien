@@ -2,7 +2,7 @@
 
 class GLFWwindow;
 
-namespace phrame{
+namespace Phrame{
 
 class Harness;
 

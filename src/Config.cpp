@@ -1,6 +1,6 @@
 #include <fstream>
 #include <map>
-#include "config.hpp"
+#include "Config.hpp"
 
 namespace Promien{
 	std::map<std::string, int> Config::settings;

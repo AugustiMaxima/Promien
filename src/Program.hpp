@@ -3,7 +3,7 @@
 #include <GL/gl.h>
 #include <vector>
 
-namespace core{
+namespace Core{
 
 class Shader;
 

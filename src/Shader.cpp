@@ -1,7 +1,7 @@
 #include <fstream>
-#include "shader.hpp"
+#include "Shader.hpp"
 
-namespace core{
+namespace Core{
 
 Shader::Shader(GLenum shaderType, const std::vector<std::string>& files):shaderType(shaderType), files(files){
 	id = glCreateShader(shaderType);
