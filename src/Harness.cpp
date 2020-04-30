@@ -15,7 +15,6 @@ int Harness::assemble(const char* cfg, const char* manifest, Plate* plate){
 
 	const char* appName = settings.getConfig("AppName").c_str();
 
-
 	GLFWwindow* window;
 
 	if(!glfwInit())
@@ -27,7 +26,6 @@ int Harness::assemble(const char* cfg, const char* manifest, Plate* plate){
 		glfwTerminate();
 		return -1;
 	}
-
 	
 	glfwMakeContextCurrent(window);
 

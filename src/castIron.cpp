@@ -1,4 +1,4 @@
-#include <GL/gl.h>
+#include <GL/glew.h>
 #include "Shader.hpp"
 #include <iostream>
 #include "castIron.hpp"
@@ -10,12 +10,18 @@ void castIron::panoply(Promien::Config* settings, GLFWwindow* window){
 	using namespace std;
 	cout<<"Beginning construction"<<endl;
 
+	GLenum err = glewInit();
 
 	using namespace Core;
 	//time for initialization stuff
 	Shader vertex(GL_VERTEX_SHADER, "shaders/test.vs");
 	Shader fragment(GL_FRAGMENT_SHADER, "shader/test.fs");
+	//Shader vertex(GL_VERTEX_SHADER);
+	//Shader fragment(GL_FRAGMENT_SHADER);
+	cout<<"Ready for attachment"<<endl;
+	cout<<"Ready for compilation"<<endl;
 	
+
 	std::string vlog = vertex.compileShader();
 	std::string flog = fragment.compileShader();
 
