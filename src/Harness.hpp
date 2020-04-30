@@ -1,24 +1,19 @@
 #pragma once
 
-//the event handler to be dropped in to the event loop
-//handles logic like rendering, event handling, physics simulation and so on
+#include "Config.hpp"
 
 class GLFWwindow;
 
 namespace Phrame{
+
+class Plate;
+
 class Harness{
 	protected:
-	GLFWwindow* window;
-	
-	public:
-	//initialization
-	void setWindow(GLFWwindow* window);
-
-	//for maximum flexiblilty, the window object is passed on
-	virtual void draw();
-	virtual void eventProcessing();
-	virtual void eventCycle();
-
+	Promien::Config settings;
+	Plate* cuirass;
+	public:	
+	virtual int assemble(const char* cfg, const char* manifest , Plate* plate);
 	virtual ~Harness();
 };
 }

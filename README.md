@@ -2,7 +2,7 @@ Promien
 ========
 Dependency
 ----------
-Compilation and build depends on and glfw.
+Compilation and build depends on glew and glfw.
 
 
 Planned Feature Road Map:

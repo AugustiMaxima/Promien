@@ -1,8 +1,10 @@
+#include <GL/glew.h>
+#include "Shader.hpp"
 #include "Program.hpp"
 
 namespace Core{
 	Program::Program(){
-		id = glCreateProgram();
+		id = -1;
 	}
 
 	Program::Program(const std::vector<Shader>& shaders){
@@ -12,7 +14,13 @@ namespace Core{
 		}
 	}
 
+	void Program::initialize(){
+		id = glCreateProgram();
+	}
+
 	void Program::attachShader(const Shader& shader){
+		if(id == -1)
+			initialize();
 		GLuint sid = shader.getShaderId();
 		glAttachShader(id, sid); 
 		shaders.push_back(sid);

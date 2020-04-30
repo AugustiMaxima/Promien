@@ -1,24 +1,59 @@
 #include <GLFW/glfw3.h>
+#include "Config.hpp"
+#include "Plate.hpp"
 #include "Harness.hpp"
+
+#include <iostream>
+using namespace std;
 
 namespace Phrame{
 
-	void Harness::setWindow(GLFWwindow* window){
-		this->window = window;
+int Harness::assemble(const char* cfg, const char* manifest, Plate* plate){
+	settings.parseSettings(cfg, manifest);
+	int xres = settings.getSetting("xres");
+	int yres = settings.getSetting("yres");
+
+	const char* appName = settings.getConfig("AppName").c_str();
+
+
+	GLFWwindow* window;
+
+	if(!glfwInit())
+		return -1;
+
+	window = glfwCreateWindow(xres, yres, appName, NULL, NULL);
+
+	if(!window){
+		glfwTerminate();
+		return -1;
 	}
 
-	void Harness::draw(){
-		;
+	
+	glfwMakeContextCurrent(window);
+
+	plate->panoply(&settings, window);	
+
+	while(!glfwWindowShouldClose(window)){
+		//game logic and simulation
+
+
+		//render
+
+
+		//present
+		glfwSwapBuffers(window);
+
+
+		glfwPollEvents();
+		//event loop
+				
 	}
 
-	void Harness::eventProcessing(){
-		;
-	}
+	glfwTerminate();
+	return 0;
 
-	void Harness::eventCycle(){
-		;
-	}
+}
 
-	Harness::~Harness(){}
+Harness::~Harness(){}
 
 }

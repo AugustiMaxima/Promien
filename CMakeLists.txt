@@ -13,7 +13,7 @@ configure_file(_buildConfig.h.in _buildConfig.h)
 include_directories(./src ./include ./lib/glfw/include ./config)
 
 #target
-add_executable(Promien src/main.cpp src/Harness.cpp src/Plate.cpp src/Config.cpp)
+add_executable(Promien src/main.cpp src/Harness.cpp src/Plate.cpp src/Config.cpp src/Shader.cpp src/Program.cpp src/castIron.cpp)
 
 #commands and configs
 add_custom_command(OUTPUT config
@@ -26,9 +26,14 @@ add_custom_command(OUTPUT shaders
 					COMMAND cp ${CMAKE_SOURCE_DIR}/src/shaders/* shaders/)
 set_property(SOURCE src/main.cpp APPEND PROPERTY OBJECT_DEPENDS shaders)
 
+#add_custom_command(OUTPUT wrangler
+#					COMMAND cp -r ${CMAKE_SOURCE_DIR}/lib/glew lib/)
+#set_property(SOURCE src/main.cpp APPEND PROPERTY OBJECT_DEPENDS wrangler)
+
 #libraries
 add_subdirectory(./lib/glfw)
 target_link_libraries(Promien glfw)
+target_link_libraries(Promien GLEW)
 
 find_package(OpenGL REQUIRED)
 
